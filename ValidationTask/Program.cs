@@ -31,11 +31,24 @@
         static bool ValidName(string name)
         {
             // name must be at least two characters and contain only letters
+            if (name.Length >= 2 && name.All(char.IsLetter) == true )
+            {
+                return true;
+            }
+            else
+                return false;
+           
         }
 
         static bool validAge(int age)
         {
             //age must be between 11 and 18 inclusive
+            if (age >= 11 && age <= 18)
+            {
+                return true;
+            }
+            else
+                return false;
 
         }
 
@@ -43,7 +56,12 @@
         static bool ValidPassword(string password)
         {
             // Check password is at least 8 characters in length
-
+            if (password.Length >= 8 && password.Any(char.IsLower) && password.Any(char.IsUpper) && password.Any(char.IsSymbol))
+            {
+                return true;
+            }
+            else
+                return false;
 
             // Check password contains a mix of lower case, upper case and non letter characters
             // QWErty%^& = valid
@@ -62,6 +80,7 @@
         }
         static bool validEmail(string email)
         {
+            return true;
             // a valid email address
             // has at least 2 characters followed by an @ symbol
             // has at least 2 characters followed by a .
@@ -72,6 +91,7 @@
         }
         static string createUserName(string firstName, string lastName, int age)
         {
+            return ;
             // username is made up from:
             // first two characters of first name
             // last two characters of last name
