@@ -55,13 +55,47 @@
    
         static bool ValidPassword(string password)
         {
-            // Check password is at least 8 characters in length
+            
             if (password.Length >= 8 && password.Any(char.IsLower) && password.Any(char.IsUpper) && password.Any(char.IsSymbol))
             {
+                 if (string.IsNullOrEmpty(password))
+        {
+            return false;
+        }
+
+        char previousChar = '\0'; 
+        char currentChar = '\0';  
+        int consecutiveCount = 1;  
+
+        for (int i = 0; i < password.Length; i++)
+        {
+            currentChar = password[i];
+
+           
+            if (currentChar == previousChar)
+            {
+                consecutiveCount++;
+                
+                if (consecutiveCount > 2)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                consecutiveCount = 1; 
+            }
+
+            previousChar = currentChar; 
+        }
+
+        return true; 
+    }
                 return true;
             }
             else
                 return false;
+            
 
             // Check password contains a mix of lower case, upper case and non letter characters
             // QWErty%^& = valid
