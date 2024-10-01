@@ -125,7 +125,9 @@
         }
         static string createUserName(string firstName, string lastName, int age)
         {
-            return ;
+            string userName = firstName.Substring(0,1) && lastName.Substring(lastName.Length-1, lastName.Length-2) && age
+                
+            return userName;
             // username is made up from:
             // first two characters of first name
             // last two characters of last name
